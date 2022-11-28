@@ -1,0 +1,79 @@
+fieldset {
+    margin: 0 auto;
+    display: flex;
+    flex-flow: column;
+    gap: 15px;
+    width: min-content;
+    padding: 25px;
+    // border: 2px solid black;
+    border: none;
+    border-radius: 20px;
+    width: 450px;
+    align-items: center;
+    background-color: rgba($color: #0C162D, $alpha: 0.8);
+
+    legend {
+        color: #D0D0D0;
+        font-weight: bold;
+        font-size: 27px;
+        text-align: center;
+    }
+
+
+    span {
+        color: red;
+    }
+
+}
+
+form input {
+    font-size: large;
+    margin: auto 0;
+    color: #D0D0D0;
+    width: 80%;
+    height: 45px;
+    text-align: center;
+    border-radius: 12px;
+    background-color: #2E3754;
+    border: none;
+    outline: none;
+}
+
+form input::placeholder {
+    text-align: center;
+}
+
+form input[type="submit"] {
+
+    all: revert;
+    padding: 6px 28px;
+    border-radius: 5px;
+    border: none;
+    background-color: #C539B4;
+    font-size: 19px;
+    font-weight: bold;
+    color: #D0D0D0;
+}
+
+form input[type="submit"]:active {
+    scale: 0.97;
+}
+
+.err {
+    border: 2px solid red;
+}
+
+
+/* Auth */
+
+
+.socialLinks {
+    display: flex;
+    justify-content: space-evenly;
+
+    svg {
+        width: 50px;
+        height: 50px;
+        color: #D0D0D0;
+    }
+}
