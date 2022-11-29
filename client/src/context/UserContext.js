@@ -1,19 +1,20 @@
-import React, { createContext, useReducer } from 'react'
+import React, { createContext, useReducer, useState } from 'react'
+import { auth } from '../firbaseConfig/firbaseAuth'
 export const userContext = createContext()
 
-const initialAuth = { auth: false }
-
-function authReducer(state, action) {
-    switch (action.type) {
-        case "AUTH":
-            return { auth: !state.auth }
-
-        default:
-            return state
-    }
-}
 const UserContext = ({ children }) => {
-    const [authState, dispatch] = useReducer(authReducer, initialAuth)
+    function authReducerFunc(state, action) {
+        switch (action.type) {
+            case 'AUTH':
+                return action.payload
+
+            case 'SIGNOUT':
+                return null
+            default:
+                return state
+        }
+    }
+    const [authState, dispatch] = useReducer(authReducerFunc, null)
     return (
         <userContext.Provider value={[authState, dispatch]} >
             {children}

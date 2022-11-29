@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Formik } from 'formik'
 import '../../style/form.style.scss'
 import { FaFacebook } from 'react-icons/fa'
@@ -6,13 +6,23 @@ import { FaGooglePlus } from 'react-icons/fa'
 import { AiFillTwitterCircle } from 'react-icons/ai'
 import { signUpSchemas } from '../../schemas/signUpSchema'
 import { auth, provider, googlePopUp } from '../../firbaseConfig/firbaseAuth'
-const SignUp = () => {
-    function handleSignUpSubmit(values, actions) {
+import { userContext } from '../../context/UserContext'
 
+
+import { createUserWithEmailAndPassword } from 'firebase/auth'
+const SignUp = () => {
+    const [state, dispatch] = useContext(userContext)
+    function handleSignUpSubmit(values, actions) {
+        createUserWithEmailAndPassword(auth, "asatur@gmail.com", "123456779")
+            .then(result => console.log(result.user))
+            .catch(err => console.log(err.code))
     }
     async function handleAuthGoogle() {
         const user = await googlePopUp(auth, provider)
-        // console.log(user);
+        dispatch({
+            type: "AUTH",
+            payload: user
+        })
     }
     return (
 

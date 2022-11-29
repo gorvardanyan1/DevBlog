@@ -1,23 +1,28 @@
-import React from 'react'
-import '../../style/nav.style.scss'
+import { signOut } from 'firebase/auth'
+import React, { useContext } from 'react'
+import { userContext } from '../../context/UserContext'
+import { auth } from '../../firbaseConfig/firbaseAuth'
 import NavItemLink from './NavItemLink'
-import { Link } from 'react-router-dom'
-const Navigation = () => {
-  return (
-    <nav >
-      <div className='navigationDiv'>
-        <ul>
-          <NavItemLink innerName={"Home"} />
-          <NavItemLink innerName={"Contact"} />
-          <NavItemLink innerName={"Blogs"} />
-        </ul>
-      </div>
-      <div className='signDiv'>
-        <Link to='/in'><span>Sign In</span></Link>
-        <Link to='/up'><span>Sign Up</span></Link>
-      </div>
-    </nav>
-  )
+
+const AnonNavigation = () => {
+    const [state, dispatch] = useContext(userContext)
+    function handleSignOut() {
+        signOut(auth).then(() => dispatch({ type: "SIGNOUT" }))
+            .catch(err => console.log(err))
+    }
+
+    return (
+        <nav>
+            <div className='navigationDiv'>
+                <ul>
+                    <NavItemLink innerName={'blogs'} />
+                </ul>
+            </div>
+            <div className='signDiv'>
+                <button onClick={handleSignOut} className="signOut" role="button"><span className="text">Sign Out</span></button>
+            </div>
+        </nav>
+    )
 }
 
-export default Navigation
+export default AnonNavigation

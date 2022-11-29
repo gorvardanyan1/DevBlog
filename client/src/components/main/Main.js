@@ -11,8 +11,6 @@ const Main = () => {
         <Route path='/' element={<About />} />
         <Route path='/in' element={<SignIn />} />
         <Route path='/up' element={<SignUp />} />
-
-
       </Routes>
 
 

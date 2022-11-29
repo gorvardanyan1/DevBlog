@@ -1,26 +1,28 @@
-import React from 'react'
-import LogoDiv from './logo/LogoDiv'
-import Navigation from './navigation/Navigation'
-import Main from './main/Main'
+import React, { useEffect } from 'react'
 
-
-///
-
-import { app, auth, provider, googlePopUp } from '../firbaseConfig/firbaseAuth'
-// async function handleEsimInch() {
-//     const user = await googlePopUp(auth, provider)
-//     console.log(user.user.email);
-// }
-
+import { BrowserRouter as Router } from 'react-router-dom'
+import { userContext } from '../context/UserContext';
+import { useContext } from 'react'
+import AnonmyusUi from './AnonmyusUi'
+import UserUi from './UserUi';
+import { auth } from '../firbaseConfig/firbaseAuth';
+console.log(auth.currentUser);
 const Container = () => {
+    const [authState, dispatch] = useContext(userContext)
+    useEffect(function () {
+        auth.currentUser && dispatch({
+            type: 'AUTH',
+            payload: auth.currentUser
+        })
+    }, [])
+
     return (
-        <div className='container'>
-            <LogoDiv />
-            <div className='mainContainer'>
-                <Navigation />
-                <Main />
+        <Router>
+            <div className='container'>
+                <button onClick={() => console.log(auth.currentUser)}>StaateNow</button>
+                {authState ? <UserUi /> : <AnonmyusUi />}
             </div>
-        </div>
+        </Router>
     )
 }
 
