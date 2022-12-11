@@ -1,5 +1,5 @@
 import React, { createContext, useReducer, useState } from 'react'
-import { auth } from '../firbaseConfig/firbaseAuth'
+
 export const userContext = createContext()
 
 const UserContext = ({ children }) => {

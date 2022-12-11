@@ -7,7 +7,7 @@ const UserMain = () => {
     return (
         <>
             <main className='anonMain'>
-                <img src={state.user.photoURL} alt="User Photo" style={{ width: "200px", height: "200px" }} />
+                <img src={state.user.photoURL || "Loadding..."} alt="User Photo" style={{ width: "200px", height: "200px" }} />
                 <h1>{state.user.email}</h1>
             </main>
         </>

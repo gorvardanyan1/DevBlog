@@ -1,15 +1,8 @@
-import { signOut } from 'firebase/auth'
-import React, { useContext } from 'react'
-import { userContext } from '../../context/UserContext'
-import { auth } from '../../firbaseConfig/firbaseAuth'
-import NavItemLink from './NavItemLink'
+
+import React from 'react'
+
 
 const AnonNavigation = () => {
-    const [state, dispatch] = useContext(userContext)
-    function handleSignOut() {
-        signOut(auth).then(() => dispatch({ type: "SIGNOUT" }))
-            .catch(err => console.log(err))
-    }
 
     return (
         <nav>
