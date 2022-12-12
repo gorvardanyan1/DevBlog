@@ -1,8 +1,9 @@
 import React from 'react'
 
 import { BrowserRouter as Router, Navigate } from 'react-router-dom'
+import LandingUi from './LendingUi'
 
-import AnonmyusUi from './AnonmyusUi'
+
 
 
 const Container = () => {
@@ -12,7 +13,7 @@ const Container = () => {
         <Router>
             <div className='container'>
 
-                <AnonmyusUi />
+                <LandingUi />
 
             </div>
         </Router>

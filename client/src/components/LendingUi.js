@@ -1,8 +1,8 @@
 import React from 'react'
 import LogoDiv from './logo/LogoDiv'
-import AnonNavigation from './navigation/AnonNavigation'
+import AnonNavigation from './navigation/LandingNavigation'
 import Main from './main/Main'
-const AnonmyusUi = () => {
+const LandingUi = () => {
     return (
         <>
             <LogoDiv />
@@ -14,4 +14,4 @@ const AnonmyusUi = () => {
     )
 }
 
-export default AnonmyusUi
+export default LandingUi

@@ -12,10 +12,10 @@ const Navigation = () => {
           <NavItemLink innerName={"blogs"} />
         </ul>
       </div>
-      <div className='signDiv'>
+      {/* <div className='signDiv'>
         <Link to='/in'><span>Sign In</span></Link>
         <Link to='/up'><span>Sign Up</span></Link>
-      </div>
+      </div> */}
     </nav>
   )
 }
