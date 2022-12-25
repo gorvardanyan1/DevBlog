@@ -1,19 +1,20 @@
 import React from 'react'
+import { Route, Routes } from 'react-router-dom'
 import '../../style/main.style.scss'
-import { Routes, Route } from 'react-router-dom'
+
 import About from './About'
-import SignUp from './SignUp'
-import SignIn from './SignIn'
+import Contact from './Contact'
+
 
 const Main = () => {
+
   return (
     <main>
+
       <Routes>
         <Route path='/' element={<About />} />
-        <Route path='/in' element={<SignIn />} />
-        <Route path='/up' element={<SignUp />} />
+        <Route path='/contact' element={<Contact />} />
       </Routes>
-
 
     </main>
   )
