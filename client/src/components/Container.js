@@ -1,6 +1,7 @@
 import React from 'react'
 
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import Blogs from './blogs/Blogs'
 import LandingUi from './LendingUi'
 
 const Container = () => {
@@ -10,9 +11,7 @@ const Container = () => {
                 <Route index path='/*' element={<div className='container'>
                     <LandingUi />
                 </div>} />
-                <Route path='/blogs' element={
-                    <div>Blogs</div>
-                } />
+                <Route path='/blogs' element={<Blogs />} />
             </Routes>
         </Router>
     )

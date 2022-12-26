@@ -1,0 +1,19 @@
+.blogsPage {
+    background-color: black;
+}
+
+header {
+    background-color: rgb(243, 239, 224);
+    height: 22vh;
+    display: flex;
+
+    .blogLogoDiv {
+        width: 30%;
+
+        img {
+            width: 80%;
+            height: 90%;
+        }
+    }
+    
+}

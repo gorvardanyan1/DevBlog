@@ -1,21 +1,19 @@
-
 import React from 'react'
 
-
-const AnonNavigation = () => {
-
-    return (
-        <nav>
-            <div className='navigationDiv'>
-                <ul>
-                    <NavItemLink innerName={'blogs'} />
-                </ul>
-            </div>
-            <div className='signDiv'>
-                <button onClick={handleSignOut} className="signOut" role="button"><span className="text">Sign Out</span></button>
-            </div>
-        </nav>
-    )
+import NavItemLink from './NavItemLink'
+import { v4 } from 'uuid'
+const Navigation = ({ link }) => {
+  return (
+    <nav >
+      <div className='navigationDiv'>
+        <ul>
+          {link.map(elem => {
+            return <NavItemLink key={v4()} innerName={elem} />
+          })}
+        </ul>
+      </div>
+    </nav>
+  )
 }
 
-export default AnonNavigation
+export default Navigation
