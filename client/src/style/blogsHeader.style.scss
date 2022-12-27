@@ -15,5 +15,36 @@ header {
             height: 90%;
         }
     }
-    
+
+    nav {
+        width: 50%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 10px 0;
+    }
+
+    .navigationDiv {
+        width: 100%;
+
+        ul {
+            list-style-type: none;
+            display: flex;
+            justify-content: space-evenly;
+
+            li {
+                a {
+                    font-family: 'Rubik Distressed', cursive;
+                    text-decoration: none;
+                    color: black;
+                    font-size: 24px;
+                    font-weight: bolder;
+
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+    }
 }

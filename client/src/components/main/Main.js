@@ -1,7 +1,6 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
 import '../../style/main.style.scss'
-
 import About from './About'
 import Contact from './Contact'
 

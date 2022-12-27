@@ -2,7 +2,8 @@ import React from 'react'
 
 import NavItemLink from './NavItemLink'
 import { v4 } from 'uuid'
-const Navigation = ({ link }) => {
+
+const Navigation = ({ link, children }) => {
   return (
     <nav >
       <div className='navigationDiv'>
@@ -10,6 +11,7 @@ const Navigation = ({ link }) => {
           {link.map(elem => {
             return <NavItemLink key={v4()} innerName={elem} />
           })}
+          {children}
         </ul>
       </div>
     </nav>
