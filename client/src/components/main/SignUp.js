@@ -6,9 +6,6 @@ import { FaGooglePlus } from 'react-icons/fa'
 import { AiFillTwitterCircle } from 'react-icons/ai'
 import { signUpSchemas } from '../../schemas/signUpSchema'
 
-
-
-
 const SignUp = () => {
     function handleSignUpSubmit() {
         console.log("yaaaa");

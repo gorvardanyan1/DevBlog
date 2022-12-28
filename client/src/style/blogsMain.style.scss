@@ -1,7 +1,15 @@
+.App {
+    background-image: url(../images/back1.jpg);
+}
+
 .blogsPage {
+    background-image: url(../images/back1.jpg);
+    background-color: black;
+    background-position: top;
+    background-size: cover;
+
     main {
         margin: 0 auto;
-        background-color: white;
         width: 90%;
         height: 500px;
     }
