@@ -13,7 +13,7 @@ const BlogsHeader = () => {
             </div>
             <Navigation link={['Top Blogers', 'Top Blog',]} >
                 <li>
-                    <Link to='blogs/addblog'> <IoAddCircleOutline /></Link>
+                    <Link to='/blogs/addblog'> <IoAddCircleOutline /></Link>
                 </li>
             </Navigation>
         </header>

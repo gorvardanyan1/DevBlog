@@ -1,11 +1,32 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Formik } from 'formik'
 import { addFormSchema } from '../../../schemas/addFormSchema';
 import '../../../style/addForm.style.scss'
+import { useNavigate } from 'react-router-dom';
 const AddBlogs = () => {
+
+
+  const navigate = useNavigate()
   function addFormSubmit(value, actions) {
-    console.log(value);
-    console.log(actions);
+    fetch('/addMainData', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(value),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+      
+        navigate('/blogs/blogCreaterPage')
+        return data
+      })
+
+      .catch((error) => {
+        console.error('Error:', error);
+
+      });
+
   }
   return (
     <div className='addFormDiv'>
