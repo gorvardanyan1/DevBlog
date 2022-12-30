@@ -5,9 +5,8 @@ import '../../../style/addForm.style.scss'
 import { useNavigate } from 'react-router-dom';
 const AddBlogs = () => {
 
-
   const navigate = useNavigate()
-  
+
   function addFormSubmit(value, actions) {
     fetch('/addMainData', {
       method: 'POST',
@@ -18,7 +17,6 @@ const AddBlogs = () => {
     })
       .then((response) => response.json())
       .then((data) => {
-      
         navigate('/blogs/blogCreaterPage')
         return data
       })
@@ -27,7 +25,6 @@ const AddBlogs = () => {
         console.error('Error:', error);
 
       });
-
   }
   return (
     <div className='addFormDiv'>
@@ -36,7 +33,8 @@ const AddBlogs = () => {
           firstName: "",
           lastName: "",
           userName: "",
-          password: ""
+          password: "",
+          postHeader: ""
         }}
         onSubmit={addFormSubmit}
         validationSchema={addFormSchema}
@@ -47,9 +45,9 @@ const AddBlogs = () => {
               <form onSubmit={handleSubmit}>
                 <input type="text" placeholder="author's first name" name='firstName' value={values.firstName} onChange={handleChange} onBlur={handleBlur} />
                 <input type="text" placeholder="author's last name" name="lastName" value={values.lastName} onChange={handleChange} onBlur={handleBlur} />
-                {/* <input type="file" placeholder="author's Image" name="imgAuthor" /> */}
                 <input type="text" placeholder='user name' name='userName' value={values.userName} onChange={handleChange} onBlur={handleBlur} />
                 <input type="password" placeholder='security password' name="password" value={values.password} onChange={handleChange} onBlur={handleBlur} />
+                <input type="text" placeholder='Post Header' name='postHeader' value={values.postHeader} onChange={handleChange} onBlur={handleBlur} />
                 <input type="submit" value="Add" />
               </form>
             )
