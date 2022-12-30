@@ -7,6 +7,7 @@ const AddBlogs = () => {
 
 
   const navigate = useNavigate()
+  
   function addFormSubmit(value, actions) {
     fetch('/addMainData', {
       method: 'POST',

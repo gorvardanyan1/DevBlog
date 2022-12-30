@@ -2,6 +2,11 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+
+}
+
+.App {
+    background-color: black;
 }
 
 .container {
@@ -11,7 +16,7 @@
     background-position: top;
     background-size: cover;
     display: flex;
-    
+
     align-items: flex-start;
 }
 
