@@ -2,7 +2,7 @@ import express from "express";
 import { MongoClient } from "mongodb";
 import { insertUser } from "./db.js";
 import { getUTCFunction } from "./getUTCfunction.js";
-getUTCFunction()
+
 const app = express()
 app.use(express.json())
 app.get("/", (req, res) => {
