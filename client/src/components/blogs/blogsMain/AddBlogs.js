@@ -8,7 +8,7 @@ const AddBlogs = () => {
   const navigate = useNavigate()
 
   function addFormSubmit(value, actions) {
-    fetch('/addMainData', {
+    fetch('/blogs/addMainData', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
