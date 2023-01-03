@@ -11,7 +11,7 @@ const BlogsHeader = () => {
             <div className="blogLogoDiv">
                 <LogoImg srcPath={logo} altImg='Logo' />
             </div>
-            <Navigation link={['Top Blogers', 'Top Blog',]} >
+            <Navigation link={['Main', 'TopBlogers', 'TopBlog',]} >
                 <li>
                     <Link to='/blogs/addblog'> <IoAddCircleOutline /></Link>
                 </li>

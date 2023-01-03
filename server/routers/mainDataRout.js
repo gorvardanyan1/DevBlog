@@ -3,7 +3,7 @@ const router = express.Router()
 import { MongoClient } from 'mongodb'
 import { insertUser } from '../db.js'
 import { getUTCFunction } from '../getUTCfunction.js'
-
+import { findBlogs } from '../db.js'
 
 router.post('/addMainData', (req, res) => {
     const url = 'mongodb://localhost:27017/'
@@ -18,8 +18,15 @@ router.post('/addMainData', (req, res) => {
     }
     MongoClient.connect(url).then(db => {
         const blodDb = db.db('DevelopmentBlog')
-        insertUser(db, blodDb, 'mainRegisterData', data).then(result => res.send(result))
+        insertUser(db, blodDb, 'blogs', data).then(result => res.send(result))
     })
+})
+router.get('/mainBlogs', (req, res) => {
+    MongoClient.connect('mongodb://localhost:27017/').then(db => {
+        const blodDb = db.db('DevelopmentBlog')
+        findBlogs(db, blodDb, 'blogs').then(result => res.send(result))
+    })
+
 })
 
 export default router

@@ -17,7 +17,7 @@ const AddBlogs = () => {
     })
       .then((response) => response.json())
       .then((data) => {
-        navigate('/blogs/blogCreaterPage')
+        navigate('/blogs')
         return data
       })
 
@@ -34,7 +34,8 @@ const AddBlogs = () => {
           lastName: "",
           userName: "",
           password: "",
-          postHeader: ""
+          postHeader: "",
+          postBody: ""
         }}
         onSubmit={addFormSubmit}
         validationSchema={addFormSchema}
@@ -49,6 +50,7 @@ const AddBlogs = () => {
                 <input type="password" placeholder='security password' name="password" value={values.password} onChange={handleChange} onBlur={handleBlur} />
                 <input type="text" placeholder='Post Header' name='postHeader' value={values.postHeader} onChange={handleChange} onBlur={handleBlur} />
                 <input type="submit" value="Add" />
+                <textarea name="postBody" id="postBody" cols="30" rows="10" value={values.postBody} onChange={handleChange} onBlur={handleBlur}></textarea>
               </form>
             )
           }
