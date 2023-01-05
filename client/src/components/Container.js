@@ -11,7 +11,7 @@ const Container = () => {
                     <div className='container'>
                         <LandingUi />
                     </div>} />
-                <Route index path='blogs/*' element={<Blogs />} />
+                <Route  path='blogs/*' element={<Blogs />} />
             </Routes>
         </Router>
     )

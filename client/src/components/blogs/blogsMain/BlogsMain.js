@@ -9,7 +9,7 @@ const BlogsMain = () => {
         <main>
             <Routes>
                 <Route path='addblog' element={<AddBlogs />} />
-                <Route path='main' element={<MainBlogs />} />
+                <Route path='maining' element={<MainBlogs />} />
             </Routes>
         </main>
     )

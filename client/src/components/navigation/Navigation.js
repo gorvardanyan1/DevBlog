@@ -9,7 +9,7 @@ const Navigation = ({ link, children }) => {
       <div className='navigationDiv'>
         <ul>
           {link.map(elem => {
-            return <NavItemLink key={v4()} innerName={elem} />
+            return <NavItemLink key={v4()} link={elem} />
           })}
           {children}
         </ul>

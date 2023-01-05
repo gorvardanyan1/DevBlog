@@ -1,10 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-const NavItemLink = ({ innerName }) => {
-    const path = innerName === "home" ? "/" : "/" + innerName
+const NavItemLink = ({ link }) => {
+
     return (
         <li>
-            <Link to={path.toLocaleLowerCase()}>{innerName}</Link>
+            <Link to={link.path}>{link.header}</Link>
         </li>
     )
 }

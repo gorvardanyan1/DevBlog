@@ -3,11 +3,11 @@ import React, { useEffect, useState } from 'react'
 const MainBlogs = () => {
     const { blogs, setBlogs } = useState([])
     useEffect(function () {
-        fetch('/mainBlogs').then(result => {
-            console.log(result)
-            setBlogs(result)
-        }
-        )
+        // fetch('/mainBlogs').then(result => {
+        //     console.log(result)
+        //     setBlogs(result)
+        // }
+        // )
     }, [])
     return (
         <div>
