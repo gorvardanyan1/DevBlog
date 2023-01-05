@@ -19,6 +19,10 @@ const BlogsHeader = () => {
     {
         header: 'Top Blog',
         path: 'topblogs'
+    },
+    {
+        header: <IoAddCircleOutline />,
+        path: 'addblog'
     }
     ]
     return (
@@ -27,9 +31,9 @@ const BlogsHeader = () => {
                 <LogoImg srcPath={logo} altImg='Logo' />
             </div>
             <Navigation link={link} >
-                <li>
+                {/* <li>
                     <Link to='/blogs/addblog'> <IoAddCircleOutline /></Link>
-                </li>
+                </li> */}
             </Navigation>
         </header>
     )
