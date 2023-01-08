@@ -13,6 +13,8 @@ const BlogSinglePage = () => {
     return (
         <div className='blogsSinglePageDiv'>
             <h1>{data.firstName}</h1>
+            <h6>{data.lastName}</h6>
+            <p>{data.postBody}</p>
         </div>
     )
 }
