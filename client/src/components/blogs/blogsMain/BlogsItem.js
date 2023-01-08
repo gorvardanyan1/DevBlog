@@ -1,11 +1,13 @@
 import React from 'react'
-
+import { Link } from 'react-router-dom'
 const BlogsItem = ({ data }) => {
     return (
         <div>
-            <h1>{data.firstName}</h1>
-            <h1>{data.lastName}</h1>
-        </div>
+            <h2>{data.postHeader}</h2>
+            <h3>{data.firstName} {data.lastName}</h3>
+            <p>{data.postBody}</p>
+            <Link to={'/blogs/blog/' + data._id}>Read</Link>
+        </div >
     )
 }
 

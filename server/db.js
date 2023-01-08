@@ -4,7 +4,12 @@ export async function insertUser(db, blogDb, collname, obj) {
     return res
 }
 export async function findBlogs(db, blogDb, collname, query = {}) {
-    let res = await blogDb.collection(collname).find(query, { projection: { _id: 0 } }).toArray()
+    let res = await blogDb.collection(collname).find(query, { projection: { password: 0 } }).toArray()
+    db.close()
+    return res
+}
+export async function findBlog(db, blogDb, collname, query = {}) {
+    let res = await blogDb.collection(collname).findOne(query, { projection: { password: 0 } })
     db.close()
     return res
 }
