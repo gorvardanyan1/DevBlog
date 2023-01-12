@@ -49,8 +49,8 @@ const AddBlogs = () => {
                 <input type="text" placeholder='user name' name='userName' value={values.userName} onChange={handleChange} onBlur={handleBlur} />
                 <input type="password" placeholder='security password' name="password" value={values.password} onChange={handleChange} onBlur={handleBlur} />
                 <input type="text" placeholder='Post Header' name='postHeader' value={values.postHeader} onChange={handleChange} onBlur={handleBlur} />
-                <input type="submit" value="Add" />
                 <textarea name="postBody" id="postBody" cols="30" rows="10" value={values.postBody} onChange={handleChange} onBlur={handleBlur}></textarea>
+                <input type="submit" value="Add" />
               </form>
             )
           }
