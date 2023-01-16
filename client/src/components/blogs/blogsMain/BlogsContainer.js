@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { v4 } from 'uuid'
-import BlogsItem from './BlogsItem'
+import BlogItem from './BlogItem'
 import '../../../style/blogsContainer.style.scss'
 const BlogsContainer = () => {
     const [blogs, setBlogs] = useState([])
@@ -14,9 +14,8 @@ const BlogsContainer = () => {
         <div className='blogsContainer' >
             <div className='blogs'>
                 {
-                    blogs.map(elem => <BlogsItem key={v4()} data={elem} />) || "loadding...."
+                    blogs.map(elem => <BlogItem key={v4()} data={elem} />) || "loadding...."
                 }
-
             </div>
         </div>
 
