@@ -10,8 +10,8 @@ const BlogsMain = () => {
     return (
         <main>
             <Routes>
+                <Route path='/' element={<BlogsContainer />} />
                 <Route path='addblog' element={<AddBlogs />} />
-                <Route path='main' element={<BlogsContainer />} />
                 <Route path='blog/:id' element={<BlogSinglePage />} />
             </Routes>
         </main>

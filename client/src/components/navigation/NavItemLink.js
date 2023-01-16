@@ -1,10 +1,10 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 const NavItemLink = ({ link }) => {
 
     return (
         <li>
-            <Link to={link.path}>{link.header}</Link>
+            <NavLink style={({ isActive }) => isActive ? { textDecoration: 'underline' } : null} to={link.path}>{link.header}</NavLink>
         </li>
     )
 }

@@ -1,5 +1,7 @@
 export function getUTCFunction() {
     const newDate = new Date()
+    console.log(Date.UTC());
+
     // const UtcDate = `${newDate.getDate()}/${newDate.getUTCMonth()}/${newDate.getUTCFullYear()}`
     // const UtcTime = `${newDate.getUTCHours()}:${newDate.getUTCMinutes()}`
     const UTCDate = {

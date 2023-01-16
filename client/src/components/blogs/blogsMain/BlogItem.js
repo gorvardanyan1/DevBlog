@@ -5,14 +5,15 @@ const BlogItem = ({ data }) => {
         <div className='blogItem'>
             <div className="blogItemHeader">
                 <span className="imgSpan">
-                    <h1>G</h1>
+                    <h1>{data.firstName.at(0)}</h1>
                 </span>
-                <h3>{data.firstName} {data.lastName}</h3>
+                <div>
+                    <h3>{data.firstName} {data.lastName}</h3>
+                    <h6>{data.submitedDate.date.day}/{data.submitedDate.date.month}/{data.submitedDate.date.year}</h6>
+                </div>
+                <Link to={'/blogs/blog' + data._id}>{data.postHeader}</Link>
+
             </div>
-            <h2>{data.postHeader}</h2>
-            <h3>{data.firstName} {data.lastName}</h3>
-            <p>{data.postBody}</p>
-            <Link to={'/blogs/blog/' + data._id}>Read</Link>
         </div >
     )
 }
