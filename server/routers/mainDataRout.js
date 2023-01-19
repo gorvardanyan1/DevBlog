@@ -12,7 +12,6 @@ router.post('/addMainData', (req, res) => {
         submitedDate: getUTCFunction(),
         like: 0,
         comments: [
-
         ],
         save: 0
     }
@@ -22,7 +21,6 @@ router.post('/addMainData', (req, res) => {
     })
 })
 router.get('/mainBlogs', (req, res) => {
-
     MongoClient.connect('mongodb://localhost:27017/').then(db => {
         const blodDb = db.db('DevelopmentBlog')
         findBlogs(db, blodDb, 'blogs').then(result => res.send(result))

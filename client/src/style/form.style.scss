@@ -70,6 +70,8 @@ form input[type="submit"]:active {
 .socialLinks {
     display: flex;
     justify-content: space-evenly;
+    margin: 0 auto;
+    width: 65%;
 
     svg {
         width: 50px;

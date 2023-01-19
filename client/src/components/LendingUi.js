@@ -4,18 +4,20 @@ import Main from './main/Main'
 import Navigation from './navigation/Navigation'
 import '../style/nav.style.scss'
 const LandingUi = () => {
-    const link = [{
-        header: 'home',
-        path: '/'
-    },
-    {
-        header: 'contact',
-        path: 'contact'
-    },
-    {
-        header: 'blogs',
-        path: 'blogs'
-    }]
+    const link = [
+        {
+            header: 'home',
+            path: '/'
+        },
+        {
+            header: 'contact',
+            path: 'contact'
+        },
+        {
+            header: 'blogs',
+            path: 'blogs/main'
+        }
+    ]
     return (
         <>
             <LogoDiv />

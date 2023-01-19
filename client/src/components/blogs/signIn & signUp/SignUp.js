@@ -1,14 +1,22 @@
 import React, { useContext } from 'react'
 import { Formik } from 'formik'
-import '../../style/form.style.scss'
+import '../../../style/form.style.scss'
 import { FaFacebook } from 'react-icons/fa'
 import { FaGooglePlus } from 'react-icons/fa'
 import { AiFillTwitterCircle } from 'react-icons/ai'
-import { signUpSchemas } from '../../schemas/signUpSchema'
+import { signUpSchemas } from '../../../schemas/signUpSchema'
 
 const SignUp = () => {
-    function handleSignUpSubmit() {
-        console.log("yaaaa");
+    function handleSignUpSubmit(value, actions) {
+        fetch('/sign/up', {
+            method: 'POST',
+            headers: {
+                'Content-type': 'application/json'
+            },
+            body: JSON.stringify(value)
+        })
+            .then(result => console.log(result))
+            
     }
     return (
 

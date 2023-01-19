@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom'
 const BlogsHeader = () => {
     const link = [{
         header: 'Main',
-        path: '/blogs'
+        path: 'main'
     },
     {
         header: 'Top Blogers',
@@ -20,9 +20,17 @@ const BlogsHeader = () => {
         header: 'Top Blog',
         path: 'topblogs'
     },
+    // {
+    //     header: <IoAddCircleOutline />,
+    //     path: 'addblog'
+    // },
     {
-        header: <IoAddCircleOutline />,
-        path: 'addblog'
+        header: 'Sign In',
+        path: 'signIn'
+    },
+    {
+        header: 'Sign Up',
+        path: 'signup'
     }
     ]
     return (
