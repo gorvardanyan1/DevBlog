@@ -1,8 +1,20 @@
 import express from 'express'
+import session from 'express-session'
 import { MongoClient } from 'mongodb';
 import { insertUser } from '../db.js';
 import bcrypt from 'bcrypt'
+import passport from 'passport';
+import passportLocal from 'passport-local'
 const sign = express.Router()
+
+sign.use(session({
+    secret: 'alio aksfh fghop rr hirfhirfhrighrgihr irhgirhg',
+    resave: false,
+    saveUninitialized: false
+}))
+
+sign.use(passport.initialize())
+sign.use(passport.session())
 
 sign.post('/up', async (req, res) => {
     const url = 'mongodb://localhost:27017/'

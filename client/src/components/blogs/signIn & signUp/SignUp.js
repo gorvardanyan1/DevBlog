@@ -1,25 +1,34 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { Formik } from 'formik'
 import '../../../style/form.style.scss'
 import { FaFacebook } from 'react-icons/fa'
 import { FaGooglePlus } from 'react-icons/fa'
 import { AiFillTwitterCircle } from 'react-icons/ai'
 import { signUpSchemas } from '../../../schemas/signUpSchema'
-
+import { useNavigate } from 'react-router-dom'
 const SignUp = () => {
+    const navigate = useNavigate()
     function handleSignUpSubmit(value, actions) {
+        const { resetForm, setSubmitting } = actions
+        const { firstName, lastName, age, email, password } = value
+        const registerData = { firstName, lastName, age, email, password }
+
+        resetForm()
+        setSubmitting(true)
         fetch('/sign/up', {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json'
             },
-            body: JSON.stringify(value)
+            body: JSON.stringify(registerData)
         })
-            .then(result => console.log(result))
-            
+            .then(result => {
+                setSubmitting(false)
+                result && navigate('/blogs/signin')
+
+            })
     }
     return (
-
         <Formik
             initialValues={{
                 firstName: "",
@@ -32,11 +41,11 @@ const SignUp = () => {
             onSubmit={handleSignUpSubmit}
             validationSchema={signUpSchemas}
         >
-            {({ errors, touched, handleChange, handleBlur, handleSubmit, handleReset, values }) => {
+            {({ errors, touched, handleChange, handleBlur, handleSubmit, handleReset, values, isSubmitting }) => {
                 return (
                     <>
                         <form onSubmit={handleSubmit} >
-                            <fieldset>
+                            <fieldset disabled={isSubmitting}>
                                 <legend>Sign Up</legend>
                                 <input value={values.firstName} onChange={handleChange} onBlur={handleBlur} type="text" name='firstName' placeholder='Last name' />
                                 {errors.firstName && touched.firstName && <span>{errors.firstName}</span>}
