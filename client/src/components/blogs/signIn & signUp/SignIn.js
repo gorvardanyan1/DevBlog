@@ -3,10 +3,12 @@ import React from 'react'
 const SignIn = () => {
   return (
     <form action="" method="post">
-      <fieldset>Sign In</fieldset>
-      <input type="text" name="userName" />
-      <input type="password" name='password' />
-      <input type="submit" value="Sign In" />
+      <fieldset>
+        <legend>Sign In</legend>
+        <input type="text" name="userName" placeholder='User Name' />
+        <input type="password" name='password' placeholder='Password' />
+        <input type="submit" value="Sign In" />
+      </fieldset>
     </form>
   )
 }

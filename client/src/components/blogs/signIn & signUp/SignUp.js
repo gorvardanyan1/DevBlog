@@ -10,8 +10,8 @@ const SignUp = () => {
     const navigate = useNavigate()
     function handleSignUpSubmit(value, actions) {
         const { resetForm, setSubmitting } = actions
-        const { firstName, lastName, age, email, password } = value
-        const registerData = { firstName, lastName, age, email, password }
+        const { firstName, lastName, userName, age, email, password } = value
+        const registerData = { firstName, lastName, userName, age, email, password }
 
         resetForm()
         setSubmitting(true)
@@ -33,6 +33,7 @@ const SignUp = () => {
             initialValues={{
                 firstName: "",
                 lastName: "",
+                userName: "",
                 age: "",
                 email: "",
                 password: "",
@@ -41,7 +42,7 @@ const SignUp = () => {
             onSubmit={handleSignUpSubmit}
             validationSchema={signUpSchemas}
         >
-            {({ errors, touched, handleChange, handleBlur, handleSubmit, handleReset, values, isSubmitting }) => {
+            {({ errors, touched, handleChange, handleBlur, handleSubmit, values, isSubmitting }) => {
                 return (
                     <>
                         <form onSubmit={handleSubmit} >
@@ -51,6 +52,8 @@ const SignUp = () => {
                                 {errors.firstName && touched.firstName && <span>{errors.firstName}</span>}
                                 <input value={values.lastName} onChange={handleChange} onBlur={handleBlur} type="text" name='lastName' placeholder='First name' />
                                 {errors.lastName && touched.lastName && <span>{errors.lastName}</span>}
+                                <input value={values.userName} onChange={handleChange} onBlur={handleBlur} type="text" name="userName" placeholder='User name' />
+                                {errors.userName && touched.userName && <span>{errors.userName}</span>}
                                 <input value={values.email} onChange={handleChange} onBlur={handleBlur} type="email" name='email' placeholder='Email' />
                                 {errors.email && touched.email && <span>{errors.email}</span>}
                                 <input value={values.age} onChange={handleChange} onBlur={handleBlur} type="number" name='age' placeholder='Age' />
