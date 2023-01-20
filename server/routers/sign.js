@@ -1,7 +1,7 @@
 import express from 'express'
 import session from 'express-session'
 import { MongoClient } from 'mongodb';
-import { insertUser } from '../db.js';
+import { insertUser, findUser } from '../db.js';
 import bcrypt from 'bcrypt'
 import passport from 'passport';
 import passportLocal from 'passport-local'
@@ -15,18 +15,42 @@ sign.use(session({
 
 sign.use(passport.initialize())
 sign.use(passport.session())
-
+passport.use(new passportLocal.Strategy({ usernameField: 'userName' },
+    async (userName, password, done) => {
+        const user = await findUser('DevelopmentBlog', 'users', { userName: userName, password: password })
+        console.log(user);
+        if (user === undefined) {
+            return done(null, null, { message: 'Incorrect userName' })
+        }
+        if (await bcrypt.compare(password, user.password)) {
+            return done(null, user)
+        }
+        done(null, null, { message: 'Incorrect password' })
+    }))
+passport.serializeUser((user, done) => {
+    done(null, user._id);
+})
+passport.deserializeUser(async (id, done) => {
+    const userSerialezed = await findUser('DevelopmentBlog', 'users', { _id: id })
+    done(null, userSerialezed)
+})
+sign.post('/in', passport.authenticate('local', {
+    successMessage: "done",
+    failureMessage: 'rejected'
+}))
+// sign.post('/flan', async (req, res) => {
+//     const user = await findUser('DevelopmentBlog', 'users', { userName: req.body.userName, password: req.body.password })
+//     console.log(user);
+//     res.send(user)
+// })
 sign.post('/up', async (req, res) => {
-    const url = 'mongodb://localhost:27017/'
-    const password = await bcrypt.hash(req.body.password, 10)
+    const password = await bcrypt.hash(req.body.password, 5)
     const data = {
         ...req.body,
         password
     }
-    MongoClient.connect(url).then(db => {
-        const thisDb = db.db('DevelopmentBlog')
-        insertUser(db, thisDb, 'users', data)
-            .then(result => res.send(true))
-    })
+    insertUser('DevelopmentBlog', 'users', data)
+        .then(res.send(true))
+
 })
 export default sign

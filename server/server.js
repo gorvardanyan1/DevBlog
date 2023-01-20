@@ -1,5 +1,4 @@
 import express from "express";
-import router from "./routers/mainDataRout.js";
 import sign from "./routers/sign.js";
 const app = express()
 
