@@ -17,21 +17,26 @@ const SignIn = () => {
       .then(result => {
         // setSubmitting(false)
         // result && navigate('/blogs/main')
-        console.log('ok');
+        console.log(loginValue);
+      })
+      
+  }
+  function handleChange(e) {
+    e.target.name === 'userName' ? setLoginValue(prev => {
+      return { ...prev, userName: e.target.value }
+    })
+      :
+      setLoginValue(prev => {
+        return { ...prev, password: e.target.value }
       })
   }
-  function handleChange(e, type) {
-    type === 'user' ? setLoginValue(prev => ({ ...prev, userName: e.target.userName }))
-      : setLoginValue(prev => ({ ...prev, userName: e.target.password }))
-  }
-
 
   return (
     <form onSubmit={(e) => handleSubmit(e)}>
       <fieldset>
         <legend>Sign In</legend>
-        <input onChange={(e) => handleChange(e, 'user')} type="text" name="userName" placeholder='User Name' />
-        <input onChange={(e) => handleChange(e, 'password')} type="password" name='password' placeholder='Password' />
+        <input onChange={(e) => handleChange(e)} type="text" name="userName" placeholder='User Name' />
+        <input onChange={(e) => handleChange(e)} type="password" name='password' placeholder='Password' />
         <input type="submit" value="Sign In" />
       </fieldset>
     </form>
