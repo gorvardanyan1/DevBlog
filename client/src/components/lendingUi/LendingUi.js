@@ -1,8 +1,8 @@
 import React from 'react'
-import LogoDiv from './logo/LogoDiv'
+import LogoDiv from '../logo/LogoDiv'
 import Main from './main/Main'
-import Navigation from './navigation/Navigation'
-import '../style/nav.style.scss'
+import Navigation from '../navigation/Navigation'
+import '../../style/nav.style.scss'
 const LandingUi = () => {
     const link = [
         {

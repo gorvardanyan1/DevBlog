@@ -1,7 +1,7 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import Blogs from './blogs/Blogs'
-import LandingUi from './LendingUi'
+import LandingUi from './lendingUi/LendingUi'
 
 const Container = () => {
     return (
@@ -11,7 +11,7 @@ const Container = () => {
                     <div className='container'>
                         <LandingUi />
                     </div>} />
-                <Route  path='blogs/*' element={<Blogs />} />
+                <Route path='blogs/*' element={<Blogs />} />
             </Routes>
         </Router>
     )

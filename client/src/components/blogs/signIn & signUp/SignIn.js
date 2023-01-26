@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const SignIn = () => {
+  const navigate = useNavigate()
   const [loginValue, setLoginValue] = useState({
     userName: '',
     password: ''
@@ -15,13 +17,16 @@ const SignIn = () => {
       body: JSON.stringify(loginValue)
     })
       .then(result => {
-        // setSubmitting(false)
-        // result && navigate('/blogs/main')
-        console.log(loginValue);
+        result.json()
+          .then(id => {
+            console.log(id);
+          })
+          .catch(err => {
+            console.error(err)
+            navigate('/blogs/signup')
+          })
       })
-      
 
-      
   }
   function handleChange(e) {
     e.target.name === 'userName' ? setLoginValue(prev => {

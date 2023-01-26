@@ -1,11 +1,11 @@
 import express from 'express'
 import session from 'express-session'
-import { MongoClient } from 'mongodb';
 import { insertUser, findUser } from '../db.js';
 import bcrypt from 'bcrypt'
 import cors from 'cors'
 
 const sign = express.Router()
+
 sign.use(session({
     secret: 'alioaksfhfghoprrhirfhirfhrighrgihrirhgirhg',
     cookie: { maxAge: 6000 },
@@ -26,19 +26,22 @@ sign.post('/in', async (req, res) => {
         req.session.auth
         req.session.userName = userName
         req.session.userId = user._id
-        res.send(req.session.userId)
+        res.send({ user: user._id })
+    }
+    else {
+        res.sendStatus(403)
     }
 
 })
 
 sign.post('/up', async (req, res) => {
-    const password = await bcrypt.hash(req.body.password, 5)
+    const password = await bcrypt.hash(req.body.password, 10)
     const data = {
         ...req.body,
         password
     }
     insertUser('DevelopmentBlog', 'users', data)
-        .then(res.send(true))
+        .then(res.sendStatus(200))
 
 })
 export default sign
