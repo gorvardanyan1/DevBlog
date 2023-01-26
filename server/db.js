@@ -25,7 +25,7 @@ export async function insertUser(dbName, collectionName, data) {
 //     db.close()
 //     return res
 // }
-export async function findUser(dbName, collectionName, query, data) {
+export async function findUser(dbName, collectionName, query) {
     await client.connect()
 
     const cleanup = (e) => {
