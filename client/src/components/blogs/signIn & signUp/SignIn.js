@@ -18,8 +18,8 @@ const SignIn = () => {
     })
       .then(result => {
         result.json()
-          .then(id => {
-            console.log(id);
+          .then(({ user }) => {
+            navigate(`/blogs/auth/:${user}`)
           })
           .catch(err => {
             console.error(err)

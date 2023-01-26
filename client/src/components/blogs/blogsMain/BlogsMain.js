@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import '../../../style/blogsMain.style.scss'
 import AddBlogs from './AddBlogs'
@@ -8,7 +8,10 @@ import SignUp from '../signIn & signUp/SignUp'
 import SignIn from '../signIn & signUp/SignIn'
 
 
-const BlogsMain = () => {
+const BlogsMain = ({ dispatch }) => {
+    useEffect(function () {
+        dispatch({ type: 'anonmyous' })
+    }, [])
     return (
         <main>
             <Routes>
