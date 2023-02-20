@@ -14,6 +14,10 @@ function reducer(state, action) {
                     path: 'main'
                 },
                 {
+                    header: 'My Blogs',
+                    path: 'myblogs'
+                },
+                {
                     header: 'Message',
                     path: 'message'
                 }

@@ -8,22 +8,22 @@ const sign = express.Router()
 
 sign.use(session({
     secret: 'alioaksfhfghoprrhirfhirfhrighrgihrirhgirhg',
-    cookie: { maxAge: 6000 },
+    cookie: { maxAge: 60000 },
     resave: false,
     saveUninitialized: true,
 
 }))
-sign.use(cors({
-    origin: 'http://localhost:3000/',
-    credentials: true,
-}))
+// sign.use(cors({
+//     origin: 'http://localhost:3000/',
+//     credentials: true,
+// }))
 
 sign.post('/in', async (req, res) => {
     const { userName, password } = req.body
     const user = await findUser('DevelopmentBlog', 'users', { userName })
     const isCompare = await bcrypt.compare(password, user.password)
     if (user && isCompare) {
-        req.session.auth
+        req.session.auth = true
         req.session.userName = userName
         req.session.userId = user._id
         res.send({ user: user._id })
